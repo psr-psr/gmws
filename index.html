@@ -1,39 +1,74 @@
-<html>
-
-<title>Grey Matter Wealth Strategies</title>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grey Matter Wealth Strategies</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Google Fonts: Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: "Instrument Serif", serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
+      background-color: black;
+      color: white;
+      min-height: 100vh;               /* Full screen height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;         /* Vertically center everything */
+      align-items: center;             /* Horizontally center */
+      text-align: center;
+      padding: 20px;
     }
 
-    h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5em;
+    .logo-container {
+      max-width: 90%;                  /* Prevents overflow on small screens */
+      width: 100%;
+      max-width: 500px;                /* Max logo width – adjust if your image is larger/smaller */
     }
 
-    .intro {
-      font-size: 1.4rem;
-      font-style: italic;
+    .logo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 1.5rem;           /* Space below logo */
+    }
+
+    .copyright {
+      font-size: clamp(1rem, 3vw, 1.1rem);  /* Responsive size */
+      font-weight: 400;
+      opacity: 0.8;                    /* Slightly softer for elegance */
+      letter-spacing: 0.5px;
+    }
+
+    /* Optional: subtle hover/fade if you want interactivity later */
+    .logo-img:hover {
+      opacity: 0.95;
+      transition: opacity 0.3s ease;
+    }
+
+    @media (max-width: 480px) {
+      .logo-container {
+        max-width: 80%;
+      }
     }
   </style>
-  
 </head>
-  <body style="background-color:black;">
-<center>
-<br><br>
-  <img src="/img/gmws.png">
-<h4 style="color:white;">Grey Matter Wealth Strategies (c) 2026. All rights reserved.</h4> 
-</center>
-  </body>
+<body>
+
+  <div class="logo-container">
+    <img src="/img/gmws.png" alt="Grey Matter Wealth Strategies Logo" class="logo-img">
+    <p class="copyright">Grey Matter Wealth Strategies © 2026. All rights reserved.</p>
+  </div>
+
+</body>
 </html>
