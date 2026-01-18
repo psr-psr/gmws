@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grey Matter Wealth Strategies</title>
 
+  <!-- ====== FAVICONS ====== -->
+  <!-- Most important / most compatible -->
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+  <!-- Modern browsers + better quality (highly recommended) -->
+  <!--link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png"-->
+  <!--link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png"-->
+
+  <!-- Apple Touch Icon (iOS home screen, Safari) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/180-favicon.png">
+
+  <!-- Android Chrome / PWA (good Google search support too) -->
+  <!--link rel="icon" type="image/png" sizes="192x192" href="/img/android-chrome-192x192.png"-->
+  <!-- Optional but nice for PWAs / large Android icons -->
+  <!-- <link rel="icon" type="image/png" sizes="512x512" href="/img/android-chrome-512x512.png"> -->
+
+  <!-- If you have a nice vector version (best quality & tiny file size) -->
+  <!-- <link rel="icon" type="image/svg+xml" href="/img/favicon.svg"> -->
+
   <!-- Google Fonts: Instrument Serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,36 +40,35 @@
       font-family: "Instrument Serif", serif;
       background-color: black;
       color: white;
-      min-height: 100vh;               /* Full screen height */
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;         /* Vertically center everything */
-      align-items: center;             /* Horizontally center */
+      justify-content: center;
+      align-items: center;
       text-align: center;
       padding: 20px;
     }
 
     .logo-container {
-      max-width: 90%;                  /* Prevents overflow on small screens */
+      max-width: 90%;
       width: 100%;
-      max-width: 500px;                /* Max logo width – adjust if your image is larger/smaller */
+      max-width: 500px;
     }
 
     .logo-img {
       width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 1.5rem;           /* Space below logo */
+      margin: 0 auto 1.5rem;
     }
 
     .copyright {
-      font-size: clamp(1rem, 3vw, 1.1rem);  /* Responsive size */
+      font-size: clamp(1rem, 3vw, 1.1rem);
       font-weight: 400;
-      opacity: 0.8;                    /* Slightly softer for elegance */
+      opacity: 0.8;
       letter-spacing: 0.5px;
     }
 
-    /* Optional: subtle hover/fade if you want interactivity later */
     .logo-img:hover {
       opacity: 0.95;
       transition: opacity 0.3s ease;
