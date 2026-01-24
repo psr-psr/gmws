@@ -589,7 +589,7 @@ html {
    Mobile styles
 ───────────────────────────────────────── */
 
-@media (max-width: 768px) {    /* ← you can change this breakpoint */
+@media (max-width: 600px) {    /* ← you can change this breakpoint */
     .hamburger {
         display: flex;
     }
