@@ -35,18 +35,27 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="nav">
-        <div class="container">
-            <img src="/img/gmws.png" alt="Grey Matter Wealth Strategies">
-            <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#philosophy">Philosophy</a>
-                <a href="#contact">Contact</a>
-                <a href="#contact" class="btn">Client Portal</a>
-            </div>
+<nav id="nav">
+    <div class="container">
+        <img src="img/gmws.png" alt="Grey Matter Wealth Strategies" class="logo">
+
+        <!-- Hamburger button (visible only on mobile) -->
+        <button class="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Nav links – will be hidden on mobile by default -->
+        <div class="nav-links" id="navLinks">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#philosophy">Philosophy</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="btn">Client Portal</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -230,7 +239,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="/img/gmws.png" alt="Grey Matter Wealth Strategies">
+                    <img src="img/gmws.png" alt="Grey Matter Wealth Strategies">
                     <p>
                         Integrated financial planning for those who want to secure their financial future and protect the one's they love.
                     </p>
@@ -254,34 +263,8 @@
         </div>
     </footer>
 
-    <script>
-        // Scrolled navigation
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Fade in on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+    <!-- Single JavaScript entry point -->
+    <script src="script.js" defer></script>
+    
 </body>
 </html>
