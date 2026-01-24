@@ -281,7 +281,7 @@ footer {
 ================================ */
 
 @media (max-width: 900px) {
-    .hamburger {
+    nav .nav-links {
         display: flex;
     }
 
