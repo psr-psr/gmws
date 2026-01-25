@@ -14,13 +14,8 @@ body {
     overflow-x: hidden;
 }
 
-/* Safe-area handling for iOS / Brave / notch / Dynamic Island */
-:root {
-    --sat: env(safe-area-inset-top);
-}
-
-body {
-    padding-top: max(var(--sat, 0px), 1rem);
+.font-instrument {
+    font-family: 'Instrument Serif', serif;
 }
 
 /* Navigation */
@@ -31,7 +26,6 @@ nav {
     right: 0;
     z-index: 1000;
     padding: 1.5rem 3rem;
-    padding-top: calc(1.5rem + var(--sat, 0px));
     transition: all 0.5s;
 }
 
@@ -39,7 +33,6 @@ nav.scrolled {
     background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
     padding: 1rem 3rem;
-    padding-top: calc(1rem + var(--sat, 0px));
 }
 
 nav .container {
@@ -617,7 +610,6 @@ html {
         transition: right 0.4s ease;
         z-index: 1000;
         padding: 6rem 2rem 2rem;
-        padding-top: calc(6rem + var(--sat, 0px));
     }
 
     .nav-links.active {
