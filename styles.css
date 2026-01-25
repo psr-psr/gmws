@@ -36,7 +36,7 @@ nav.scrolled {
 }
 
 nav .container {
-    max-width: 700px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
