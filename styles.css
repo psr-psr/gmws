@@ -36,7 +36,7 @@ nav.scrolled {
 }
 
 nav .container {
-    max-width: 1400px;
+    max-width: 700px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -589,7 +589,7 @@ html {
    Mobile styles
 ───────────────────────────────────────── */
 
-@media (max-width: 230px) {    /* ← you can change this breakpoint */
+@media (max-width: 780px) {    /* ← you can change this breakpoint */
     .hamburger {
         display: flex;
     }
@@ -629,6 +629,7 @@ html {
 
     /* Make logo a bit smaller on mobile if desired */
     nav img.logo {
+        width: auto;
         height: 60px;
     }
 
