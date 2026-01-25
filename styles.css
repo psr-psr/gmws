@@ -53,6 +53,7 @@ nav .nav-links {
     gap: 2.5rem;
     list-style: none;
     align-items: center;
+    margin: 0;
 }
 
 nav .nav-links a {
@@ -369,43 +370,6 @@ section {
     line-height: 1.8;
 }
 
-/* Testimonial */
-.testimonial {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.stars {
-    display: flex;
-    gap: 0.25rem;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.star {
-    width: 20px;
-    height: 20px;
-    color: #c9a962;
-}
-
-.testimonial blockquote {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-.testimonial-author {
-    font-weight: 500;
-}
-
-.testimonial-meta {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.875rem;
-}
-
 /* CTA Section */
 .cta {
     text-align: center;
@@ -503,12 +467,8 @@ footer {
     font-size: 0.875rem;
 }
 
-/* Responsive */
+/* Responsive - general */
 @media (max-width: 768px) {
-    nav .nav-links {
-        display: none;
-    }
-
     section {
         padding: 4rem 1.5rem;
     }
@@ -547,7 +507,7 @@ html {
 ───────────────────────────────────────── */
 
 .hamburger {
-    display: none;                    /* hidden on desktop */
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 32px;
@@ -555,7 +515,8 @@ html {
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 1100;
+    z-index: 1101;
+    padding: 0;
 }
 
 .hamburger span {
@@ -578,59 +539,50 @@ html {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Mobile menu – hidden by default */
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-}
-
 /* ────────────────────────────────────────
-   Mobile styles
+   Mobile Menu
 ───────────────────────────────────────── */
 
-@media (max-width: 780px) {    /* ← you can change this breakpoint */
+@media (max-width: 780px) {
+
     .hamburger {
         display: flex;
     }
 
-    .nav-links {
+    nav .nav-links {
+        /* Reset for mobile – we control visibility via .active class */
+        display: flex;
         position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 280px;
-        max-width: 85vw;
+        inset: 0;
+        width: 100%;
+        height: 100dvh;
         background: rgba(0, 0, 0, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 3rem;
-        transition: right 0.4s ease;
+        transition: transform 0.4s ease;
+        transform: translateX(100%);
         z-index: 1000;
-        padding: 6rem 2rem 2rem;
+        padding: calc(5.5rem + env(safe-area-inset-top, 0px)) 2rem 4rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
-    .nav-links.active {
-        right: 0;
+    nav .nav-links.active {
+        transform: translateX(0);
     }
 
-    .nav-links a {
+    nav .nav-links a {
         font-size: 1.3rem;
         color: rgba(255, 255, 255, 0.9);
     }
 
-    .nav-links a.btn {
+    nav .nav-links a.btn {
         margin-top: 1.5rem;
         padding: 1rem 2.5rem;
         font-size: 1.1rem;
-    }
-
-    /* Make logo a bit smaller on mobile if desired */
-    nav img.logo {
-        width: auto;
-        height: 60px;
     }
 
     nav {
@@ -639,5 +591,10 @@ html {
 
     nav.scrolled {
         padding: 0.9rem 1.8rem;
+    }
+
+    /* Optional: slightly smaller logo on small screens */
+    nav img {
+        height: 60px;
     }
 }
