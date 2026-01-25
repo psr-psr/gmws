@@ -1,63 +1,64 @@
 // script.js
 
-// Scrolled navigation
-window.addEventListener('scroll', function() {
-    const nav = document.getElementById('nav');
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
+// Scrolled nav
+window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Fade in on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+// Fade-ins
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -80px 0px' }
+);
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-});
-
-// Hamburger menu toggle
+// Hamburger menu – more robust version
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('#navLinks');
+const body = document.body;
 
 if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        
-        // Prevent body scroll when menu is open
-        document.body.style.overflow = navLinks.classList.contains('active') 
-            ? 'hidden' 
-            : '';
-    });
+    const toggleMenu = () => {
+        const isActive = navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active', isActive);
+        body.style.overflow = isActive ? 'hidden' : '';
+        // Extra insurance for iOS
+        document.documentElement.style.overflow = isActive ? 'hidden' : '';
+    };
 
-    // Close menu when clicking a link
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Close when clicking links
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
+            if (navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
         });
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
+    // Close on outside click (optional but nice)
+    document.addEventListener('click', e => {
+        if (
+            navLinks.classList.contains('active') &&
+            !navLinks.contains(e.target) &&
+            !hamburger.contains(e.target)
+        ) {
+            toggleMenu();
+        }
+    });
+
+    // Optional: close on ESC key
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            toggleMenu();
         }
     });
 }
